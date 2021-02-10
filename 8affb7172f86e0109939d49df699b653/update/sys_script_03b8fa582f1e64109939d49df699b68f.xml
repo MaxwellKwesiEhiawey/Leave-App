@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_573882_leave_app_leave_request</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Check Start and End Date</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+
+    // Add your code here
+	
+	var now = new GlideDateTime();
+    var startDate = new GlideDateTime(current.start_date);
+    var endDate = new GlideDateTime(current.end_date);
+	
+//     var timeDiff =  GlideDate.subtract(startDate,endDate);
+// 	var checkDate = timeDiff.getNumericValue();
+    if (endDate.before(startDate)) {
+        gs.addErrorMessage("You cannot submit Leave Requests with End Date preceeding Start Date.");
+        current.setAbortAction(true);
+    }
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-09 07:56:03</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>03b8fa582f1e64109939d49df699b68f</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>Check Start and End Date</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Leave App" source="x_573882_leave_app">8affb7172f86e0109939d49df699b653</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Leave App">8affb7172f86e0109939d49df699b653</sys_scope>
+        <sys_update_name>sys_script_03b8fa582f1e64109939d49df699b68f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-10 07:20:05</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=03b8fa582f1e64109939d49df699b68f"/>
+</record_update>

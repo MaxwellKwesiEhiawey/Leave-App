@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>true</disabled>
+        <field>taken</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-06 16:06:21</sys_created_on>
+        <sys_id>411e49eb2f4ae0109939d49df699b6d5</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>taken</sys_name>
+        <sys_package display_value="Leave App" source="x_573882_leave_app">8affb7172f86e0109939d49df699b653</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Leave App">8affb7172f86e0109939d49df699b653</sys_scope>
+        <sys_update_name>sys_ui_policy_action_411e49eb2f4ae0109939d49df699b6d5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-06 16:08:32</sys_updated_on>
+        <table>x_573882_leave_app_leave_request</table>
+        <ui_policy display_value="Mandatory and Read Only fields">e6c8c9e72f4ae0109939d49df699b624</ui_policy>
+        <visible>ignore</visible>
+    </sys_ui_policy_action>
+</record_update>

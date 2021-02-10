@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>end_date</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>setDuration</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    var start = g_form.getValue('start_date');
+    //Type appropriate comment here, and begin script below
+
+    var ga = new GlideAjax('lappAjax');
+    ga.addParam('sysparm_name', 'getDateDiff');
+    ga.addParam('sysparm_start', start);
+    ga.addParam('sysparm_end', newValue);
+    ga.getXML(getDuration);
+
+    function getDuration(response) {
+        var answer = response.responseXML.documentElement.getAttribute("answer");
+        var days = (answer/(1000 * 60 * 60 * 24) + 1);
+        g_form.setValue('duration', days);
+    }
+
+
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-06 13:56:18</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>c14ca4e32f0ae0109939d49df699b6eb</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>setDuration</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Leave App" source="x_573882_leave_app">8affb7172f86e0109939d49df699b653</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Leave App">8affb7172f86e0109939d49df699b653</sys_scope>
+        <sys_update_name>sys_script_client_c14ca4e32f0ae0109939d49df699b6eb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-06 15:20:10</sys_updated_on>
+        <table>x_573882_leave_app_leave_request</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Leave App">8affb7172f86e0109939d49df699b653</application>
+        <file_path/>
+        <instance_id>05572dd6db78ab446578f22ebf961973</instance_id>
+        <instance_name>dev71326</instance_name>
+        <name>sys_script_client_c14ca4e32f0ae0109939d49df699b6eb</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;end_date&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;setDuration&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    var start = g_form.getValue('start_date');
+    //Type appropriate comment here, and begin script below
+
+    var ga = new GlideAjax('lappAjax');
+    ga.addParam('sysparm_name', 'getDateDiff');
+    ga.addParam('sysparm_start', start);
+    ga.addParam('sysparm_end', newValue);
+    ga.getXML(getDuration);
+
+    function getDuration(response) {
+        var answer = response.responseXML.documentElement.getAttribute("answer");
+        var days = (answer/(1000 * 60 * 60 * 24) + 1);
+        g_form.setValue('duration', days);
+    }
+
+
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-02-06 13:56:18&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;c14ca4e32f0ae0109939d49df699b6eb&lt;/sys_id&gt;&lt;sys_mod_count&gt;9&lt;/sys_mod_count&gt;&lt;sys_name&gt;setDuration&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Leave App" source="x_573882_leave_app"&gt;8affb7172f86e0109939d49df699b653&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Leave App"&gt;8affb7172f86e0109939d49df699b653&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_c14ca4e32f0ae0109939d49df699b6eb&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-02-06 15:20:10&lt;/sys_updated_on&gt;&lt;table&gt;x_573882_leave_app_leave_request&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>196904246</payload_hash>
+        <record_name>setDuration</record_name>
+        <reverted_from/>
+        <source>c6ffb7172f86e0109939d49df699b655</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-06 15:20:10</sys_created_on>
+        <sys_id>a2838da32f4ae0109939d49df699b614</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17777edd04f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-06 15:20:10</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>2e838da3934ae010e0bcddb388878713</update_guid>
+        <update_guid_history>2e838da3934ae010e0bcddb388878713:196904246,3fe005636f4ae010da21a4e3bd873136:-1866294310,486005637b4ae01015c5a1504717d331:2013415499,288b302f900ae0109be2c2d776419f40:1447568855,f715b4ab380ae0100fc6bec85d508ad5:-1973870020,68e434ab080ae010bfb590655321c939:-1563251517,ec14b0ab520ae01093572a46c0b9d565:-1982767008,6a32b8e7240ae010a0174a77bee148ea:-1563251517,b46178e7a30ae0108b5d30ee2685b8db:-160334908,9e5038e7260ae010bb8dcedb192316c4:-1689912705</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-08 09:48:59</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>5410ea7d9ae74a50a56ec90311084f79</sys_id>
+        <sys_metadata>c14ca4e32f0ae0109939d49df699b6eb</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>setDuration</sys_name>
+        <sys_package display_value="Leave App" source="x_573882_leave_app">8affb7172f86e0109939d49df699b653</sys_package>
+        <sys_parent display_value="Leave Request">8f31c4a72f86e0109939d49df699b6cd</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Leave App">8affb7172f86e0109939d49df699b653</sys_scope>
+        <sys_scope_delete display_value="">90b384eba8124c178d7a7ce041333b49</sys_scope_delete>
+        <sys_update_name>sys_script_client_c14ca4e32f0ae0109939d49df699b6eb</sys_update_name>
+        <sys_update_version display_value="sys_script_client_c14ca4e32f0ae0109939d49df699b6eb">a2838da32f4ae0109939d49df699b614</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-08 09:48:59</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_app">
+    <sys_app action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <can_edit_in_studio>false</can_edit_in_studio>
+        <enforce_license>none</enforce_license>
+        <guided_setup_guid/>
+        <hide_on_ui>false</hide_on_ui>
+        <installed_as_dependency>false</installed_as_dependency>
+        <js_level>helsinki_es5</js_level>
+        <licensable>true</licensable>
+        <license_category>none</license_category>
+        <license_definition/>
+        <license_model>none</license_model>
+        <logo>52ffb7572f86e0109939d49df699b6ea</logo>
+        <menu/>
+        <name>Leave App</name>
+        <private>false</private>
+        <restrict_table_access>false</restrict_table_access>
+        <runtime_access_tracking>permissive</runtime_access_tracking>
+        <scope>x_573882_leave_app</scope>
+        <scoped_administration>false</scoped_administration>
+        <short_description>Global Leave Application App</short_description>
+        <source>x_573882_leave_app</source>
+        <store_correlation_id/>
+        <store_url/>
+        <sys_class_name>sys_app</sys_class_name>
+        <sys_code/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-06 10:24:56</sys_created_on>
+        <sys_id>8affb7172f86e0109939d49df699b653</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-06 10:24:58</sys_updated_on>
+        <template/>
+        <trackable>true</trackable>
+        <uninstall_blocked>false</uninstall_blocked>
+        <user_role/>
+        <vendor/>
+        <vendor_prefix/>
+        <version>1.0.0</version>
+    </sys_app>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color/>
+        <chunk_size_bytes>700000</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/jpeg</content_type>
+        <file_name>Amalitech logo.jpg</file_name>
+        <hash>91a9f00298a646e70ff5167ce682b02974743849ca48f749654693ef30f196b4</hash>
+        <image_height/>
+        <image_width/>
+        <size_bytes>22448</size_bytes>
+        <size_compressed>5058</size_compressed>
+        <state>available</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-06 10:24:58</sys_created_on>
+        <sys_id>52ffb7572f86e0109939d49df699b6ea</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2021-02-06 10:24:58</sys_updated_on>
+        <table_name>sys_app</table_name>
+        <table_sys_id>8affb7172f86e0109939d49df699b653</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="Amalitech logo.jpg" sys_id="52ffb7572f86e0109939d49df699b6ea">52ffb7572f86e0109939d49df699b6ea</sys_attachment>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-06 10:24:58</sys_created_on>
+        <sys_id>92ffb7572f86e0109939d49df699b6ea</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>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</data>
+        <length>6732</length>
+        <position>1</position>
+        <sys_attachment display_value="Amalitech logo.jpg" sys_id="52ffb7572f86e0109939d49df699b6ea">52ffb7572f86e0109939d49df699b6ea</sys_attachment>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-06 10:24:58</sys_created_on>
+        <sys_id>16ffb7572f86e0109939d49df699b6ea</sys_id>
+    </sys_attachment_doc>
+</record_update>

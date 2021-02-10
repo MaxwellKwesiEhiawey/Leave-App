@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="DELETE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_573882_leave_app_leave_request</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>LeaveApp Check  Valid Date</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	// Add your code here
+	
+		
+	// Instantiate the NeedItUtils class.  Call the isDatePast method and pass
+	// the u_when_needed value.
+	var validDate = new CheckBackDate();
+	var isPast1 = validDate.isDatePast(current.start_date);
+	var isPast2 = validDate.isDatePast(current.end_date);
+	// If the isDatePast method returns true, the date is in the past.
+	if(isPast1 && isPast2 == true){
+		gs.addErrorMessage("Leave date cannot be in the past.  Your request has not been saved to the database.");
+		current.setAbortAction(true);
+	}
+	
+	
+	// pass the When needed field value to the isDateToday method in NeedItUtils
+	var isToday1 = validDate.isDateToday(current.start_date);
+	var isToday2 = validDate.isDateToday(current.end_date);
+	
+	// if the isDateToday method returns true the When needed date is today 
+	if(isToday1 && isToday2 == true){
+		gs.addErrorMessage("You cannot submit Leave request Today, Proceed on leave today and end leave today.");
+		current.setAbortAction(true);
+	}
+	var isToday = validDate.isDateToday(current.start_date);
+	
+	// if the isDateToday method returns true the When needed date is today 
+	if(isToday == true){
+		gs.addErrorMessage("You cannot submit request for today and Proceed on Leave today.");
+		current.setAbortAction(true);
+	}
+	var duration1 = (isPast1 - isPast2);
+	
+	var errorEndDate = (duration1 < 0);
+	// If the End and Start Date  returns true, the End date is Earlier than start Date.
+	if(errorEndDate == true){
+		gs.addErrorMessage("Your End Date cannot be ahead of your Start Date.");
+		current.setAbortAction(true);
+	}
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-08 07:59:01</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>73fd6d4c2f9e24109939d49df699b636</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>LeaveApp Check  Valid Date</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Leave App" source="x_573882_leave_app">8affb7172f86e0109939d49df699b653</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Leave App">8affb7172f86e0109939d49df699b653</sys_scope>
+        <sys_update_name>sys_script_73fd6d4c2f9e24109939d49df699b636</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-08 11:14:13</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="DELETE" query="documentkey=73fd6d4c2f9e24109939d49df699b636"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Leave App">8affb7172f86e0109939d49df699b653</application>
+        <file_path/>
+        <instance_id>05572dd6db78ab446578f22ebf961973</instance_id>
+        <instance_name>dev71326</instance_name>
+        <name>sys_script_73fd6d4c2f9e24109939d49df699b636</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;false&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;x_573882_leave_app_leave_request&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;LeaveApp Check  Valid Date&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	// Add your code here
+	
+		
+	// Instantiate the NeedItUtils class.  Call the isDatePast method and pass
+	// the u_when_needed value.
+	var validDate = new CheckBackDate();
+	var isPast1 = validDate.isDatePast(current.start_date);
+	var isPast2 = validDate.isDatePast(current.end_date);
+	// If the isDatePast method returns true, the date is in the past.
+	if(isPast1 &amp;&amp; isPast2 == true){
+		gs.addErrorMessage("Leave date cannot be in the past.  Your request has not been saved to the database.");
+		current.setAbortAction(true);
+	}
+	
+	
+	// pass the When needed field value to the isDateToday method in NeedItUtils
+	var isToday1 = validDate.isDateToday(current.start_date);
+	var isToday2 = validDate.isDateToday(current.end_date);
+	
+	// if the isDateToday method returns true the When needed date is today 
+	if(isToday1 &amp;&amp; isToday2 == true){
+		gs.addErrorMessage("You cannot submit Leave request Today, Proceed on leave today and end leave today.");
+		current.setAbortAction(true);
+	}
+	var isToday = validDate.isDateToday(current.start_date);
+	
+	// if the isDateToday method returns true the When needed date is today 
+	if(isToday == true){
+		gs.addErrorMessage("You cannot submit request for today and Proceed on Leave today.");
+		current.setAbortAction(true);
+	}
+	var duration1 = (isPast1 - isPast2);
+	
+	var errorEndDate = (duration1 &lt; 0);
+	// If the End and Start Date  returns true, the End date is Earlier than start Date.
+	if(errorEndDate == true){
+		gs.addErrorMessage("Your End Date cannot be ahead of your Start Date.");
+		current.setAbortAction(true);
+	}
+
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-02-08 07:59:01&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;73fd6d4c2f9e24109939d49df699b636&lt;/sys_id&gt;&lt;sys_mod_count&gt;17&lt;/sys_mod_count&gt;&lt;sys_name&gt;LeaveApp Check  Valid Date&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Leave App" source="x_573882_leave_app"&gt;8affb7172f86e0109939d49df699b653&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Leave App"&gt;8affb7172f86e0109939d49df699b653&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_73fd6d4c2f9e24109939d49df699b636&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-02-08 11:14:13&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;before&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=73fd6d4c2f9e24109939d49df699b636"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>328709043</payload_hash>
+        <record_name>LeaveApp Check  Valid Date</record_name>
+        <reverted_from display_value="sys_script_73fd6d4c2f9e24109939d49df699b636">e76e92802f5264109939d49df699b607</reverted_from>
+        <source>c6ffb7172f86e0109939d49df699b655</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-08 12:22:34</sys_created_on>
+        <sys_id>341ea24c2f5264109939d49df699b6d0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1778197f1e10000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-08 12:22:34</sys_updated_on>
+        <type>Business Rule</type>
+        <update_guid>a41ea24cf152641014e28b4a855590cc</update_guid>
+        <update_guid_history>a41ea24cf152641014e28b4a855590cc:328709043,27ba2e88b752641043bc253279fb486c:1095859238,ef6e92800c526410bc5112580bd25706:328709043,f25ed680925264101a0ffec9faff453f:1095859238,0d0b9ecc0012641031fd41a0b5fcd39b:328709043,6f39d68cb31264100bcb5b8a14b15d00:360323241,66195e8c141264101bd490abd70b180a:1095859238,4c8556c824126410d63143d130189bbe:360323241,ab449e8857126410046b154c7852d270:398081513,6db39a888412641068acc366378b9dbd:360323241,f9f21688e51264106b8ed9a8561460e4:398081513,6bce0284c5126410d011f0d8d310746b:-790452089,2badca0424126410a6f83fcb27a1bbac:1080145485,5afc4e048c1264101332c54e761f0175:1854328076,860c8a0409126410a0a973050060e98a:-480128360,bae5c6001b126410f5a5306c85db0e2f:-432882009,31958200d2126410aa029d5cddff8928:-77985433,7fd3ca4ccbde2410cf9bad952f7db2d6:-1574379565,d9a18a4c74de241084425698cba19a2a:1293337940,48c1bd80ddde2410a3c2e99be4f38dfe:1893105020</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-02-08 12:26:19</sys_created_on>
+        <sys_db_object display_value="" name="sys_script">sys_script</sys_db_object>
+        <sys_id>0fbd86b4ad0c4d3a9424315d845a2284</sys_id>
+        <sys_metadata>73fd6d4c2f9e24109939d49df699b636</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>LeaveApp Check  Valid Date</sys_name>
+        <sys_package display_value="Leave App" source="x_573882_leave_app">8affb7172f86e0109939d49df699b653</sys_package>
+        <sys_parent display_value="Leave Request">8f31c4a72f86e0109939d49df699b6cd</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Leave App">8affb7172f86e0109939d49df699b653</sys_scope>
+        <sys_scope_delete display_value="">90b384eba8124c178d7a7ce041333b49</sys_scope_delete>
+        <sys_update_name>sys_script_73fd6d4c2f9e24109939d49df699b636</sys_update_name>
+        <sys_update_version display_value="sys_script_73fd6d4c2f9e24109939d49df699b636">341ea24c2f5264109939d49df699b6d0</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-02-08 12:26:19</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
