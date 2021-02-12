@@ -5,20 +5,20 @@
         <action_delete>false</action_delete>
         <action_insert>true</action_insert>
         <action_query>false</action_query>
-        <action_update>false</action_update>
+        <action_update>true</action_update>
         <active>true</active>
         <add_message>false</add_message>
         <advanced>true</advanced>
         <change_fields>false</change_fields>
         <client_callable>false</client_callable>
-        <collection>x_573882_leave_app_leave_request</collection>
+        <collection>sys_user</collection>
         <condition/>
         <description/>
         <execute_function>false</execute_function>
         <filter_condition/>
         <is_rest>false</is_rest>
         <message/>
-        <name>Check Back Dating </name>
+        <name>Gender Leave Allocation -Male</name>
         <order>100</order>
         <priority>100</priority>
         <rest_method/>
@@ -30,48 +30,34 @@
         <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
 
 	// Add your code here
+	
+	var leaveBucket = new GlideRecord('x_573882_leave_app_leave_bucket');
+            leaveBucket.initialize();
+            leaveBucket.leave_type = 'pl';
+            leaveBucket.accrued = 60;
+            leaveBucket.balance = 60;
+            leaveBucket.taken = 0;
+			leaveBucket.employee = current.sys_id;
+			leaveBucket.insert();
 
-		
-	// Instantiate the NeedItUtils class.  Call the isDatePast method and pass
-	// the u_when_needed value.
-	var checkDate = new CheckBackDate();
-	var isPast = checkDate.isDatePast(current.start_date);
-	
-	// If the isDatePast method returns true, the date is in the past.
-	if(isPast == true){
-		gs.addErrorMessage("Leave Request's Start Date cannot be Today(the of application) or in the past.  Your request has not been saved. Please Check Date and try again!");
-		current.setAbortAction(true);
-	}
-	
-	
-	// pass the When needed field value to the isDateToday method in NeedItUtils
-// 	var isToday = checkDate.isDateToday(current.start_date);
-	
-// 	// if the isDateToday method returns true the When needed date is today 
-// 	if(isToday == true){
-// 		gs.addErrorMessage("You cannot submit Leave requests today and proceed Today. Please Start on Future Date");
-// 		current.setAbortAction(true);
-// 	}
-	
-	
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2021-02-08 18:03:26</sys_created_on>
+        <sys_created_on>2021-02-12 10:37:37</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>d97af7802f5664109939d49df699b6cd</sys_id>
-        <sys_mod_count>6</sys_mod_count>
-        <sys_name>Check Back Dating </sys_name>
+        <sys_id>f1cb32992fde20109939d49df699b628</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Gender Leave Allocation -Male</sys_name>
         <sys_overrides/>
         <sys_package display_value="Leave App" source="x_573882_leave_app">8affb7172f86e0109939d49df699b653</sys_package>
         <sys_policy/>
         <sys_scope display_value="Leave App">8affb7172f86e0109939d49df699b653</sys_scope>
-        <sys_update_name>sys_script_d97af7802f5664109939d49df699b6cd</sys_update_name>
+        <sys_update_name>sys_script_f1cb32992fde20109939d49df699b628</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-02-12 13:44:00</sys_updated_on>
+        <sys_updated_on>2021-02-12 10:37:37</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>
-    <sys_translated_text action="delete_multiple" query="documentkey=d97af7802f5664109939d49df699b6cd"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=f1cb32992fde20109939d49df699b628"/>
 </record_update>
